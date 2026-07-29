@@ -1,11 +1,10 @@
 {
-  "name": "Pendataan Wajib Pajak Reklame - BAPENDA Paser",
-  "short_name": "WP Reklame",
-  "description": "Aplikasi pendataan biodata wajib pajak reklame beserta titik lokasi/peta untuk BAPENDA Kabupaten Paser",
-  "start_url": "./index.html",
+  "name": "Pendataan Wajib Pajak Hotel - BAPENDA Paser",
+  "short_name": "WP Hotel",
+  "description": "Aplikasi pendataan wajib pajak hotel",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#f6f4ee",
   "theme_color": "#0f2647",
   "icons": [
