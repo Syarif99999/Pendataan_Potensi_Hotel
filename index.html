@@ -465,6 +465,32 @@ function exportCSV(){
   const today = new Date().toISOString().slice(0,10);
   document.getElementById('fTanggal').value = today;
 })();
+  // Registrasi Service Worker untuk PWA (install ke home screen + offline shell)
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('sw.js').catch(err=>console.log('SW gagal:', err));
+  });
+}
+
+// Tombol "Install App" custom (muncul kalau browser mendukung)
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault();
+  deferredPrompt = e;
+  const installBtn = document.getElementById('installBtn');
+  if(installBtn) installBtn.style.display = 'inline-block';
+});
+
+function installApp(){
+  const installBtn = document.getElementById('installBtn');
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>{
+      deferredPrompt = null;
+      if(installBtn) installBtn.style.display = 'none';
+    });
+  }
+}
 </script>
 
 </body>
